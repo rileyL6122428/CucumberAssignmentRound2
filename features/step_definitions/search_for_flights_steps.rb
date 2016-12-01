@@ -25,9 +25,9 @@ Then(/^I can't choose a departure date from the past$/) do
   on_page SouthWestFlightSearchResults do |page|
     page.departure_dates.each do |date|
       page.select_departure_date(date)
-      
-      expect(page.highlighted_departure_date).not_to eq date if page.from_the_past?(date)
-      expect(page.highlighted_departure_date).to eq date if !page.from_the_past?(date)
+
+      expect(page.highlighted_departure_date).not_to eq date if page.date_already_passed?(date)
+      expect(page.highlighted_departure_date).to eq date if !page.date_already_passed?(date)
     end
   end
 end

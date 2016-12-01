@@ -32,11 +32,11 @@ class SouthWestFlightSearchResults
     element_to_select = departure_dates_elements.find do |date_element|
       date_element.attribute("carouselfulldate") == date_str
     end
-    
+
     element_to_select.click
   end
 
-  def from_the_past?(date)
+  def date_already_passed?(date)
     now = Time.now
     date < Time.new(now.year, now.month, now.day).to_date
   end
