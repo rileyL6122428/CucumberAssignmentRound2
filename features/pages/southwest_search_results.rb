@@ -32,6 +32,7 @@ class SouthWestFlightSearchResults
     element_to_select = departure_dates_elements.find do |date_element|
       date_element.attribute("carouselfulldate") == date_str
     end
+    
     element_to_select.click
   end
 
